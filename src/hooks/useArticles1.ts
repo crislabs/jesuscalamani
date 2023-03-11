@@ -42,11 +42,7 @@ export const useCreateArticle2 = () => {
     mutationFn: async (input: CreateArticle) => await createPortfolioArticle(input),
 
     onSuccess: async (data) => {
-      queryClient.invalidateQueries([
-        'portfolio-get-articles2-with-cursor',
-        { first: 256 },
-        data.parentId,
-      ]);
+      queryClient.setQueryData<Article[]>(['portfolio-get-articles2-by-id', data.parentId], (old) => [...old!, data])
 
       await SwalMessage('Article Created');
       toggle();
@@ -91,6 +87,13 @@ export const useGetArticleById = (article: Article) => {
 export const useGetArticles1ByParentId = (parentId: string, articles: Article[]) => {
   return useQuery<Article[]>({
     queryKey: ['portfolio-get-articles1-by-id', parentId],
+    queryFn: () => getPortfolioArticlesByParentId(parentId),
+    initialData: articles
+  });
+}
+export const useGetArticles2ByParentId = (parentId: string, articles: Article[]) => {
+  return useQuery<Article[]>({
+    queryKey: ['portfolio-get-articles2-by-id', parentId],
     queryFn: () => getPortfolioArticlesByParentId(parentId),
     initialData: articles
   });

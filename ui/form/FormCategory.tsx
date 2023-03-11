@@ -6,8 +6,9 @@ import React from 'react';
 import { usePath } from '@/src/hooks/usePath';
 import { useUI } from '@/src/providers/UIProvider';
 import { typeCategoryPortfolio } from '@/src/utils';
-import { Category, CreateCategory } from '@/src/interfaces/category';
-import { useCreateCategory0 } from '@/src/hooks/useCategory0';
+import { Category, CreateCategory, UpdateCategory } from '@/src/interfaces/category';
+import { useCreateCategory0, useUpdateCategory0ById } from '@/src/hooks/useCategory0';
+import { useCreateCategory1, useUpdateCategory1ById } from '@/src/hooks/useCategory1';
 
 
 interface Props {
@@ -19,6 +20,9 @@ export function FormCategory(props: Props) {
   const path = usePath();
   const { toggleSlideOversForm } = useUI();
   const createCategory0 = useCreateCategory0();
+  const createCategory1 = useCreateCategory1();
+  const updateCategory0 = useUpdateCategory0ById();
+  const updateCategory1 = useUpdateCategory1ById();
   // const updatePage0 = useUpdatePage0();
   // const createPage1 = useCreatePage1();
   // const createPage2 = useCreatePage2();
@@ -45,35 +49,26 @@ export function FormCategory(props: Props) {
             }
       }
       onSubmit={(values) => {
+        
         if (category) {
-          if (path.length === 4) {
-            if (path[2]==='page0') {
-              
-              // updatePage0.mutate({...values, parentId: path[3]} as UpdatePage)
-            }
-            if (path[2]==='page1') {
-              
-              // createPage2.mutate({...values, parentId: path[3]} as CreatePage)
-            }
-            
+          if (path[3]==='category0') {
+            updateCategory0.mutate({...values} as UpdateCategory)
           }
+          if (path[3]==='category1') {
+            updateCategory1.mutate({...values} as UpdateCategory)
+            }
+          
         } else {
           
           if (path.length === 3) {
-            // console.log('values', {...values, parentId: path[2]})
             createCategory0.mutate({...values, parentId: path[2]} as CreateCategory)
-          } 
-          if (path.length === 4) {
-            if (path[2]==='page0') {
-              
-              // createPage1.mutate({...values, parentId: path[3]} as CreatePage)
-            }
-            if (path[2]==='page1') {
-              
-              // createPage2.mutate({...values, parentId: path[3]} as CreatePage)
-            }
-            
           }
+          if (path[3]==='category0') {
+            createCategory1.mutate({...values, parentId: path[4]} as CreateCategory)
+          }
+          if (path[3]==='category') {
+          }
+          
         }
         
       }}
@@ -165,15 +160,14 @@ export function FormCategory(props: Props) {
 
         <div className=" border-t border-gray-200 p-3 bg-gray-200">
           <div className="group-button-form ">
-            <button type="submit" className="btn-primary ">
-              Add
-            {/* {page
-                ? updatePage0.isLoading
+            <button type="submit" className="btn-primary">
+            {category
+                ? (updateCategory0.isLoading || updateCategory1.isLoading)
                   ? '...Updating'
                   : 'Update'
-                : (createPage0.isLoading || createPage1.isLoading)
+                : (createCategory0.isLoading || createCategory1.isLoading )
                 ? '...Saving'
-                : 'Save'} */}
+                : 'Save'}
             </button>
             <button
               type="button"

@@ -86,6 +86,7 @@ export const getPortfolioCategory0ById = async ( id: string):Promise<Category> =
         portfolioGetCategory0ById( id: $id){
           _id
           slug
+          parentId
           data{
             name
             description
@@ -140,6 +141,8 @@ export const getPortfolioCategory0BySlug = async (slug: string, siteId: string) 
         siteId
       },
     }),
+    next: {revalidate: 60}
+
   });
   const { data: {portfolioGetCategory0BySlug} } = await response.json();
   return  portfolioGetCategory0BySlug

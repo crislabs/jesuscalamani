@@ -2,18 +2,18 @@
 import { Category, CreateCategory } from '@/src/interfaces/category';
 import axios from 'axios';
 
-export async function createPortfolioCategory0(input: CreateCategory): Promise<Category> {
+export async function createPortfolioCategory1(input: CreateCategory): Promise<Category> {
   const {
     data: {
-      data: { portfolioCreateCategory0 },
+      data: { portfolioCreateCategory1 },
     },
   } = await axios({
     url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/graphql`,
     method: 'post',
     data: {
       query: `
-      mutation PortfolioCreateCategory0($input: CreateCategory!){
-        portfolioCreateCategory0(input: $input){
+      mutation PortfolioCreateCategory1($input: CreateCategory!){
+        portfolioCreateCategory1(input: $input){
           _id
           slug
           parentId
@@ -28,5 +28,5 @@ export async function createPortfolioCategory0(input: CreateCategory): Promise<C
       variables: { input },
     },
   });
-  return portfolioCreateCategory0;
+  return portfolioCreateCategory1;
 }

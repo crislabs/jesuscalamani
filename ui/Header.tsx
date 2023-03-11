@@ -19,6 +19,7 @@ import { useTheme } from 'next-themes';
 import { usePath } from '@/src/hooks/usePath';
 // import { usePath } from '@/src/hooks/usePath';
 import { useLocalStorageState } from 'ahooks';
+import { slug } from '@/src/utils';
 
 const navigation = [
   { name: 'Projects', href: '/projects' },
@@ -27,10 +28,12 @@ const navigation = [
 ];
 
 export default function Header() {
+  // console.log(slug('asd3'));
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { setTheme, theme } = useTheme();
   // const currentTheme = localStorage.getItem("theme");
   // console.log('currentTheme', currentTheme)
+  
   const path = usePath()
   if (path[0]=== 'dashboard') return null
 

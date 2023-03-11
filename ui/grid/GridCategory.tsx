@@ -1,34 +1,9 @@
 'use client'
+import { useGetPageBySlug } from "@/src/hooks/usePages"
 import { Page } from "@/src/interfaces/page"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
-const products = [
-  {
-    id: 1,
-    name: 'Basic Tee',
-    href: '#',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '$35',
-    color: 'Black',
-  },
-  // More products...
-]
 
 interface Props{
   page?: Page
@@ -36,14 +11,14 @@ interface Props{
 
 export default function GridCategory(props: Props) {
   const pathname = usePathname()
-  // console.log('pathname', pathname)
+  const { data: page } = useGetPageBySlug(props.page as Page)
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">{props.page?.data.name}</h2>
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900">{page?.data.name}</h2>
 
         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {props.page?.categories?.map((data, i) => (
+          {page?.categories?.map((data, i) => (
             <div key={i} className="group relative">
               <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                 <img

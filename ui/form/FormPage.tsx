@@ -1,6 +1,5 @@
 import { Dialog } from '@headlessui/react';
-import {  XMarkIcon } from '@heroicons/react/24/outline';
-
+import { XMarkIcon } from '@heroicons/react/24/outline';
 
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
@@ -8,13 +7,9 @@ import * as Yup from 'yup';
 import React from 'react';
 import { usePath } from '@/src/hooks/usePath';
 import { useUI } from '@/src/providers/UIProvider';
-// import { useCreatePage0, useUpdatePage0 } from '@/src/hooks/usePages0';
-// import { useCreatePage1 } from '@/src/hooks/usePages1';
-// import { useCreatePage2 } from '@/src/hooks/usePages2';
 import { CreatePage, Page, UpdatePage } from '@/src/interfaces/page';
 import { typePagePet } from '@/src/utils';
-import { useCreatePage } from '@/src/hooks/usePages';
-
+import { useCreatePage, useUpdatePageById } from '@/src/hooks/usePages';
 
 interface Props {
   page?: Page;
@@ -24,10 +19,8 @@ export function FormPage(props: Props) {
   const { page } = props;
   const path = usePath();
   const { toggleSlideOversForm } = useUI();
-  const createPage0 = useCreatePage();
-  // const updatePage0 = useUpdatePage0();
-  // const createPage1 = useCreatePage1();
-  // const createPage2 = useCreatePage2();
+  const createPage = useCreatePage();
+  const updatePage = useUpdatePageById();
 
   return (
     <Formik
@@ -40,7 +33,7 @@ export function FormPage(props: Props) {
               siteId: process.env.NEXT_PUBLIC_SITE_URL as string,
               parentId: page.parentId,
               uid: '123',
-              type: page.data.type.slug
+              type: page.data.type.slug,
             }
           : {
               name: '',
@@ -52,36 +45,14 @@ export function FormPage(props: Props) {
       }
       onSubmit={(values) => {
         if (page) {
-          if (path.length === 4) {
-            if (path[2]==='page0') {
-              
-              // updatePage0.mutate({...values, parentId: path[3]} as UpdatePage)
-            }
-            if (path[2]==='page1') {
-              
-              // createPage2.mutate({...values, parentId: path[3]} as CreatePage)
-            }
-            
-          }
-        } else {
+          updatePage.mutate({ ...values, parentId: path[2] } as UpdatePage);
           
-          if (path.length === 2) {
-            
-            createPage0.mutate({...values, parentId: process.env.NEXT_PUBLIC_SITE_URL as string} as CreatePage)
-          } 
-          if (path.length === 4) {
-            if (path[2]==='page0') {
-              
-              // createPage1.mutate({...values, parentId: path[3]} as CreatePage)
-            }
-            if (path[2]==='page1') {
-              
-              // createPage2.mutate({...values, parentId: path[3]} as CreatePage)
-            }
-            
-          }
+        } else {
+          createPage.mutate({
+            ...values,
+            parentId: process.env.NEXT_PUBLIC_SITE_URL as string,
+          } as CreatePage);
         }
-        
       }}
       validationSchema={Yup.object({
         name: Yup.string()
@@ -89,9 +60,7 @@ export function FormPage(props: Props) {
           .required('Required'),
       })}
     >
-      <Form
-        className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
-      >
+      <Form className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
         <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
           <div className="flex items-start justify-between">
             <Dialog.Title className="text-lg font-medium text-gray-900">
@@ -117,7 +86,12 @@ export function FormPage(props: Props) {
                     <div className="grid grid-cols-6 gap-6">
                       <div className="col-span-6">
                         <label className="label-form">Name</label>
-                        <Field name="name" type="text" className="input-form" autoComplete="off" />
+                        <Field
+                          name="name"
+                          type="text"
+                          className="input-form"
+                          autoComplete="off"
+                        />
                         <ErrorMessage name="name" />
                       </div>
 
@@ -140,27 +114,25 @@ export function FormPage(props: Props) {
                         </h2>
                         <div className="grid grid-cols-2">
                           <React.Fragment>
-                            {
-                              typePagePet.map((data) => (
-                                <div
-                                  className="flex items-center my-2"
-                                  key={data.label}
-                                >
-                                  <Field
-                                    type="radio"
-                                    name="type"
-                                    value={data.value}
-                                  />
+                            {typePagePet.map((data) => (
+                              <div
+                                className="flex items-center my-2"
+                                key={data.label}
+                              >
+                                <Field
+                                  type="radio"
+                                  name="type"
+                                  value={data.value}
+                                />
 
-                                  <label className="ml-3 label-form">
-                                    {data.label}
-                                  </label>
-                                </div>
-                              ))}
+                                <label className="ml-3 label-form">
+                                  {data.label}
+                                </label>
+                              </div>
+                            ))}
                           </React.Fragment>
                         </div>
                       </div>
-                      
                     </div>
                   </div>
                 </div>
@@ -172,14 +144,14 @@ export function FormPage(props: Props) {
         <div className=" border-t border-gray-200 p-3 bg-gray-200">
           <div className="group-button-form ">
             <button type="submit" className="btn-primary ">
-              Add
-            {/* {page
-                ? updatePage0.isLoading
+              
+              {page
+                ? updatePage.isLoading
                   ? '...Updating'
                   : 'Update'
-                : (createPage0.isLoading || createPage1.isLoading)
+                : createPage.isLoading
                 ? '...Saving'
-                : 'Save'} */}
+                : 'Save'}
             </button>
             <button
               type="button"

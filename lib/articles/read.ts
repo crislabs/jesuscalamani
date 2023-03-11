@@ -56,6 +56,7 @@ export async function getPortfolioArticleById(id: string): Promise<Article> {
       `,
       variables: { id },
     }),
+    next: { revalidate: 10 },
   })
     .then(res => res.json())
     .then((res) => res.data)

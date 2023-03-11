@@ -4,7 +4,8 @@ import { portfolioDeletePages } from "@/lib/pages/delete";
 import { portfolioDeletePages0 } from "@/lib/pages/page0/delete";
 import { getPortfolioPage0, getPortfolioPage0BySlug } from "@/lib/pages/page0/read";
 import { updatePortfolioPage0 } from "@/lib/pages/page0/update";
-import { getPortfolioPageById, getPortfolioPagesByParentId, getPortfolioPagesWithCursorByParentId } from "@/lib/pages/read";
+import { getPortfolioPageById, getPortfolioPageBySlug, getPortfolioPagesByParentId, getPortfolioPagesWithCursorByParentId } from "@/lib/pages/read";
+import { updatePortfolioPageById } from "@/lib/pages/update";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import Swal from "sweetalert2";
@@ -39,7 +40,7 @@ export const useCreatePage = () => {
     },
   });
 }
-export const useUpdatePage0 = () => {
+export const useUpdatePageById = () => {
   const {
     toggleSlideOversForm: {
       actions: { toggle },
@@ -49,10 +50,10 @@ export const useUpdatePage0 = () => {
 
   return useMutation({
     mutationFn: async (input: UpdatePage) =>
-      await updatePortfolioPage0(input),
+      await updatePortfolioPageById(input),
   
     onSuccess: async (data) => {
-      queryClient.setQueryData<Page>(['portfolio-get-page0', data._id], data);
+      queryClient.setQueryData<Page>(['portfolio-get-page-by-id', data._id], data);
       await SwalMessage('Page Updated');
       toggle();
     },
@@ -64,15 +65,16 @@ export const useUpdatePage0 = () => {
 
 export const useGetPageById = (page: Page) => {
   return useQuery<Page>({
-    queryKey: ['portfolio-get-page', page._id],
+    queryKey: ['portfolio-get-page-by-id', page._id],
     queryFn: () => getPortfolioPageById( page._id ),
     initialData: page
   });
 }
-export const useGetPage0BySlug = (slug: string) => {
+export const useGetPageBySlug = (page: Page) => {
   return useQuery<Page>({
-    queryKey: ['portfolio-get-page0-by-slug', slug],
-    queryFn: () => getPortfolioPage0BySlug( slug, process.env.NEXT_PUBLIC_SITE_URL as string)
+    queryKey: ['portfolio-get-page-by-slug', page.slug],
+    queryFn: () => getPortfolioPageBySlug( page.slug, process.env.NEXT_PUBLIC_SITE_URL as string),
+    initialData: page
   });
 }
 

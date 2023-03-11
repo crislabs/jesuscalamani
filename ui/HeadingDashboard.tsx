@@ -1,4 +1,3 @@
-/* eslint-disable react/no-children-prop */
 
 import { FolderPlusIcon } from '@heroicons/react/24/solid';
 import { SlideOversForm } from './SlideOversForm';
@@ -15,6 +14,7 @@ import { useUI } from '@/src/providers/UIProvider';
 import { usePath } from '@/src/hooks/usePath';
 import { Category } from '@/src/interfaces/category';
 import { FormCategory } from './form/FormCategory';
+import Modal from './Modal';
 
 interface Props {
   title?: string;
@@ -47,7 +47,7 @@ const sortOptionsPage = [
 ]
 
 export function HeadingDashboard(props: Props) {
-  const { page, site, article, product, title } = props;
+  const { page, site, article, product, title, category } = props;
   const path = usePath();
   const {
     childrenDashboard: { childrens, setChildrens },
@@ -60,9 +60,16 @@ export function HeadingDashboard(props: Props) {
     // setChildrens(<FormContent article={article} />)
   });
   const handleClickEdit = (slug: string) => {
-    if (path[2] === 'page0') {
+    if (path.length === 3) {
       toggleSlideOversForm.actions.toggle();
         setChildrens(<FormPage page={page} />);
+    }
+    if (category) {
+      toggleSlideOversForm.actions.toggle();
+        setChildrens(<FormCategory category={category} />);
+    }
+    if (path[2] === 'articles' && slug === 'image') {
+      toggleModal.actions.toggle()
     }
     if (path[1] === 'articles') {
       toggleSlideOversForm.actions.toggle();
@@ -80,7 +87,15 @@ export function HeadingDashboard(props: Props) {
       toggleSlideOversForm.actions.toggle();
       setChildrens(<FormArticle />);
     }
+    if (category?.data.type.slug === 'blog') {
+      toggleSlideOversForm.actions.toggle();
+      setChildrens(<FormArticle />);
+    }
     if (page?.data.type.slug === 'category') {
+      toggleSlideOversForm.actions.toggle();
+      setChildrens(<FormCategory />);
+    }
+    if (category?.data.type.slug === 'category') {
       toggleSlideOversForm.actions.toggle();
       setChildrens(<FormCategory />);
     }
@@ -127,6 +142,9 @@ export function HeadingDashboard(props: Props) {
           {article && (
             <Option onPress={handleClickEdit} options={sortOptionsArticle}/>
           )}
+          {category && (
+            <Option onPress={handleClickEdit} options={sortOptionsArticle}/>
+          )}
         </div>
         <div className="flex">
             <span className="block">
@@ -142,6 +160,12 @@ export function HeadingDashboard(props: Props) {
                   }
                   {
                     page?.data.type.slug === 'category' && 'Add Category'
+                  }
+                  {
+                    category?.data.type.slug === 'category' && 'Add Category'
+                  }
+                  {
+                    category?.data.type.slug === 'blog' && 'Add Blog'
                   }
                   {
                     path[1] === 'articles' && 'Add Image'
@@ -170,7 +194,7 @@ export function HeadingDashboard(props: Props) {
               </button>
             </span>
           )} */}
-          {path[1] === 'products' && (
+          {/* {path[1] === 'products' && (
             <span className="block space-x-3">
               <button
                 className="btn-primary space-x-3"
@@ -187,11 +211,12 @@ export function HeadingDashboard(props: Props) {
                 <p className="hidden sm:block">Add Specs</p>
               </button>
             </span>
-          )}
+          )} */}
         </div>
       </div>
 
       <SlideOversForm children={childrens} />
+      <Modal />
     </div>
   );
 }

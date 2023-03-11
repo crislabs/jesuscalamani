@@ -1,7 +1,7 @@
-import Link from 'next/link';
+import { Home } from '@/ui/Home';
 
 export default function Page() {
   return (
-    <div>Hola Mundo</div>
+    <Home />
   );
 }
