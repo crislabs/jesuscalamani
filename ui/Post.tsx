@@ -4,18 +4,20 @@ import { getPortfolioArticleBySlug } from "@/lib/articles/read";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { MarkdownPreview } from "./MarkdownPreview";
+import { useGetArticleBySlug } from "@/src/hooks/useArticles1";
 
 interface Props {
   post: Article
 }
 
 export default function Post(props: Props) {
+  const {data: post } = useGetArticleBySlug(props.post)
   return (
     <article className="max-w-2xl px-6 py-24 mx-auto space-y-10">
       <div className="w-full mx-auto space-y-8 text-center">
         {/* <p className="text-xs font-semibold tracking-wider uppercase">#TailwindCSS</p> */}
         <h1 className="text-4xl font-bold leading-tight md:text-5xl text-skin-accent">
-          {props.post.data?.name}
+          {post.data?.name}
         </h1>
         <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center dark:text-gray-400">
           <div className="flex items-center md:space-x-2">
@@ -40,7 +42,7 @@ export default function Post(props: Props) {
       </div>
 
       <div className="prose max-w-none prose-pre:bg-transparent prose-pre:p-0">
-        <MarkdownPreview markdown={props.post.data.content || ""} />
+        <MarkdownPreview markdown={post.data.content || ""} />
       </div>
       <div className="pt-12 border-t dark:border-gray-700">
         <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">

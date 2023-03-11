@@ -112,7 +112,6 @@ export const getPortfolioPageBySlug = async (slug: string, siteId: string):Promi
         siteId
       },
     }),
-    // next: {revalidate: 60}
   });
   const { data: {portfolioGetPageBySlug} } = await response.json();
   return  portfolioGetPageBySlug

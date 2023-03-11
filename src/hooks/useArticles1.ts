@@ -1,6 +1,6 @@
 
 import { createPortfolioArticle } from "@/lib/articles/create";
-import { getPortfolioArticleById, getPortfolioArticlesByParentId, getPortfolioArticlesWithCursorByParentId } from "@/lib/articles/read";
+import { getPortfolioArticleById, getPortfolioArticleBySlug, getPortfolioArticlesByParentId, getPortfolioArticlesWithCursorByParentId } from "@/lib/articles/read";
 import { updatePortfolioArticleById, updatePortfolioArticleContentById } from "@/lib/articles/update";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Article, CreateArticle, ListArticle, UpdateArticle, UpdateContentArticle } from "../interfaces/article";
@@ -83,6 +83,13 @@ export const useGetArticleById = (article: Article) => {
     initialData: article
   });
 } 
+export const useGetArticleBySlug = (article: Article) => {
+  return useQuery<Article>({
+    queryKey: ['portfolio-get-article-by-slug', article.slug ],
+    queryFn: () => getPortfolioArticleBySlug( article.slug, process.env.NEXT_PUBLIC_SITE_URL as string ),
+    initialData: article
+  });
+} 
 
 export const useGetArticles1ByParentId = (parentId: string, articles: Article[]) => {
   return useQuery<Article[]>({
@@ -106,12 +113,12 @@ export const useUpdateArticleContentById = () => {
     },
   } = useUI();
   const queryClient = useQueryClient();
-
   return useMutation({
     mutationFn: async (input: UpdateContentArticle) => await updatePortfolioArticleContentById(input),
 
     onSuccess: async (data) => {
       queryClient.setQueryData<Article>(['portfolio-get-article-by-id', data._id], data);
+      queryClient.setQueryData<Article>(['portfolio-get-article-by-slug', data.slug], data);
       await SwalMessageTime('Content Updated', 1500);
 
       // toggle();
