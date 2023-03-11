@@ -141,7 +141,6 @@ export const getPortfolioCategory0BySlug = async (slug: string, siteId: string) 
         siteId
       },
     }),
-    next: {revalidate: 60}
 
   });
   const { data: {portfolioGetCategory0BySlug} } = await response.json();
