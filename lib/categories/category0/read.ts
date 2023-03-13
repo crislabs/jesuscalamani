@@ -107,7 +107,7 @@ export const getPortfolioCategory0ById = async ( id: string):Promise<Category> =
   return  portfolioGetCategory0ById
 }
 
-export const getPortfolioCategory0BySlug = async (slug: string, siteId: string) => {
+export const getPortfolioCategory0BySlug = async (slug: string, siteId: string):Promise<Category> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_BACKEND_URL}/graphql`,
   {
     method: 'POST',

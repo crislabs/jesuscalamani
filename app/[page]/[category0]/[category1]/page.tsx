@@ -11,7 +11,7 @@ interface Props {
 }
 export default function Page(props: Props) {
   const category = use(getPortfolioCategory1BySlug(props.params.category1, process.env.NEXT_PUBLIC_SITE_URL as string))
-  console.log('category', category)
+  // console.log('category', category)
   return (
     <>
     {

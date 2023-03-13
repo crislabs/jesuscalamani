@@ -1,4 +1,4 @@
-import { getPortfolioCategories0BySiteId } from "@/lib/categories/category0/read";
+import { getPortfolioCategories0BySiteId, getPortfolioCategory0BySlug } from "@/lib/categories/category0/read";
 import { getPortfolioPagesBySiteId } from "@/lib/pages/read";
 
 interface Props {
@@ -9,11 +9,11 @@ interface Props {
    };
 }
 
-// export async function generateStaticParams() {
-//   const pages = await getPortfolioCategories0BySiteId(process.env.NEXT_PUBLIC_SITE_URL as string)
-//   return pages.map((data) => ({
-//     category0: data.slug,
-//   }));
+// export async function generateStaticParams(props: Props) {
+//   const category = await getPortfolioCategory0BySlug(props.params.category0, process.env.NEXT_PUBLIC_SITE_URL as string)
+//   if (category.data.type.slug === 'category') {
+//     return category.categories?.map((category) => ({category0: category.slug}))
+//   }
 // }
 
 export default function Layout(props: Props) {

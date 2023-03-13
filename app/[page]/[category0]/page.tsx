@@ -14,6 +14,7 @@ interface Props {
 
 export default function Page(props: Props) {
   const category = use(getPortfolioCategory0BySlug(props.params.category0, process.env.NEXT_PUBLIC_SITE_URL as string))
+  
   return (
     <React.Fragment>
       {
