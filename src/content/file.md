@@ -1,5 +1,6 @@
 ## Table of contents
 
+## Introducción
 Como ya lo hemos dicho, el estudio del inglés por medio del sistema Básico se hace tan sencillo y fácil, que con unas pocas semanas de estudio se aprende en este libro más inglés del que podría aprender en meses y aun en años por medio de otros
 sistemas.
 
@@ -7,15 +8,15 @@ Lo importante es empezar con el estudio de un grupo determinado de palabras, las
 
 Vamos a comenzar nuestro estudio de la lengua inglesa aprendiendo, de memoria, un grupo de palabras que son exactamente iguales en inglés y en castellano, variando solamente en su pronunciación.
 
-1. Animal (Ánimal) (1) .... Animal
-2. Base (beis) ............ Base
-3. Collar (cólaR) ......... Collar
-4. Control (contróUl)........ Control
-5. Error (érroR) .......... Error
-6. General (yéneral)......... General
-7. Hospital (jóspitAl)...... Hospital
-8. Idea (aidía) ........... Idea
-9. Metal (métAl) .......... Metal
+01. Animal (Ánimal) (1) .... Animal
+02. Base (beis) ............ Base
+03. Collar (cólaR) ......... Collar
+04. Control (contróUl)........ Control
+05. Error (érroR) .......... Error
+06. General (yéneral)......... General
+07. Hospital (jóspitAl)...... Hospital
+08. Idea (aidía) ........... Idea
+09. Metal (métAl) .......... Metal
 10. Material (matírial) ........ Material
 11. Natural (náchural)....... Natural
 12. No (nóU) ............... No
@@ -125,17 +126,17 @@ Estudie cuidadosamente estas frases:
 87.  They are here ................ Ellos están aquí
 88.  Today is Monday .............. Hoy es lunes
 IS y ARE son muy usadas con las palabras terminadas en ing. 
-89. Walk (uóok) ............... Paseo. 
-90. Walking (uóoking) ......... Paseando, caminando. 
+89. Walk (***uóok***) ............... Paseo. 
+90. Walking (***uóoking***) ......... Paseando, caminando. 
 91.  They are walking .......... Ellos están caminando. 
-92. Attack (atak) ............. Ataque. 
-93. Attacking (ataking) ....... Atacando. 
+92. Attack (***atak***) ............. Ataque. 
+93. Attacking (***ataking***) ....... Atacando. 
 94. They are attacking ........ Ellos están atacando. 
-95. Paint (peint) ............. Pintura. 
-96. Painting (peinting) ....... Pintando. 
+95. Paint (***peint***) ............. Pintura. 
+96. Painting (***peinting***) ....... Pintando. 
 97.  He is painting ............ El está pintando. 
-98. Cry (crai) ................ Grito, llanto. 
-99. Crying (craiing) .......... Gritando, llorando. 
+98. Cry (***crai***) ................ Grito, llanto. 
+99. Crying (***craiing***) .......... Gritando, llorando. 
 100. They are crying ........... Ellos están llorando.
 
 (1) Cuando no colocamos pronunciación es porque ya la hemos dado: en caso de dudas consulte las páginas anteriores o el vocabulario en la undécima lección.
