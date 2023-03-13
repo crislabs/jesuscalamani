@@ -8,6 +8,9 @@ import { usePath } from '@/src/hooks/usePath';
 import { useSelection } from '@/src/providers/SelectionProvider';
 import { useDeletePage } from '@/src/hooks/usePages';
 import { useDeleteCategoriesOById } from '@/src/hooks/useCategory0';
+import { useDeleteArticlesById } from '@/src/hooks/useArticles1';
+import { useQueryClient } from '@tanstack/react-query';
+import { Category } from '@/src/interfaces/category';
 // import { useDeletePage0 } from '@/src/hooks/usePages0';
 // import { useDeletePage1 } from '@/src/hooks/usePages1';
 // import { useDeletePage2 } from '@/src/hooks/usePages2';
@@ -23,11 +26,11 @@ export function HeadingDashboardOption(props: Props) {
 
   const deletePortfolioPages = useDeletePage()
   const deletePortfolioCategories0 = useDeleteCategoriesOById()
-  
-  // const deletePetPages1 = useDeletePage1()
-  // const deletePetPages2 = useDeletePage2()
-
-
+  const deletePortfolioArticles = useDeleteArticlesById()
+  const queryClient = useQueryClient();
+  // const data = queryClient.getQueryData(['portfolio-get-articles1-by-id', path[4]])
+  const category = queryClient.getQueryData<Category>(['portfolio-get-category0-by-id', path[4]])
+  // console.log('category', category)
   const deleteHandle = () => {
     Swal.fire({
       title: 'Are you sure?',
@@ -46,14 +49,11 @@ export function HeadingDashboardOption(props: Props) {
         {
           path.length === 3 && deletePortfolioCategories0.mutate(selected)
         }
-        if (path.length ===4) {
+        if (path.length === 5) {
+          {
+            category?.data.type.slug === 'blog' && deletePortfolioArticles.mutate(selected)
+          }
           
-          {
-            //  path[2] === 'page0' && deletePetPages1.mutate(selected)
-          }
-          {
-            // path[2] === 'page1' && deletePetPages2.mutate(selected)
-          }
         }
         
         

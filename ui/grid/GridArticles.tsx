@@ -35,14 +35,14 @@ export default function GridArticles(props: Props) {
 
           <Link
             rel="noopener noreferrer"
-            href={`${pathname}/article/${data.slug}`}
+            href={`${pathname}/content/${data.slug}`}
             className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-900"
             key={i}
           >
             <img
               role="presentation"
               className="object-cover w-full rounded dark:bg-gray-500"
-              src="https://source.unsplash.com/random/480x360?1"
+              src="https://res.cloudinary.com/dcpr6059h/image/upload/v1678700721/No-Photo_ryvjpx.jpg"
             />
             <div className="p-6 space-y-2">
               <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">

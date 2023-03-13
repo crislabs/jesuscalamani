@@ -64,11 +64,7 @@ export const useUpdateCategory0ById = () => {
 }
 
 export const useDeleteCategoriesOById = () => {
-  const {
-    toggleSlideOversForm: {
-      actions: { toggle },
-    },
-  } = useUI();
+  
   const { unSelectAll } = useSelection();
   const path= usePath()
   const queryClient = useQueryClient();

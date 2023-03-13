@@ -1,12 +1,16 @@
 
 import { createPortfolioArticle } from "@/lib/articles/create";
+import { portfolioDeleteArticlesById } from "@/lib/articles/delete";
 import { getPortfolioArticleById, getPortfolioArticleBySlug, getPortfolioArticlesByParentId, getPortfolioArticlesWithCursorByParentId } from "@/lib/articles/read";
 import { updatePortfolioArticleById, updatePortfolioArticleContentById } from "@/lib/articles/update";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 import { Article, CreateArticle, ListArticle, UpdateArticle, UpdateContentArticle } from "../interfaces/article";
 import { Error } from "../interfaces/error";
+import { useSelection } from "../providers/SelectionProvider";
 import { useUI } from "../providers/UIProvider";
 import { SwalMessage, SwalMessageError, SwalMessageSiteCreateError, SwalMessageTime } from "../utils";
+import { usePath } from "./usePath";
 
 export const useCreateArticle1 = () => {
   const {
@@ -49,6 +53,35 @@ export const useCreateArticle2 = () => {
     },
     onError: async (err: Error) => {
       SwalMessageError(err.response.data.errors[0].message);
+    },
+  });
+}
+export const useDeleteArticlesById = () => {
+  
+  const { unSelectAll } = useSelection();
+  const path= usePath()
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (ids: string[]) => await portfolioDeleteArticlesById(ids),
+
+    onSuccess: async (data, ids) => {
+      if (path[3]==='category0') {
+        queryClient.setQueryData<Article[]>(['portfolio-get-articles1-by-id', path[4]],  (old) => old?.filter(data => !ids.includes(data._id)))
+      }
+      if (path[3]==='category1') {
+        queryClient.setQueryData<Article[]>(['portfolio-get-articles2-by-id', path[4]],  (old) => old?.filter(data => !ids.includes(data._id)))
+      }
+
+      unSelectAll()
+    },
+    onError: (error) => {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: error as string,
+        footer: '<a href="">Why do I have this issue?</a>',
+      });
     },
   });
 }

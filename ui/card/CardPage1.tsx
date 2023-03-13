@@ -30,7 +30,7 @@ export function CardPage1({ page }: Props) {
           className="h-[12rem] w-full object-cover"
           src={
             page?.data.thumbnailUrl! ||
-            'https://res.cloudinary.com/dqsbh2kn0/image/upload/v1663014890/zawkgpyjvvxrfwp9j7w1.jpg'
+            'https://res.cloudinary.com/dcpr6059h/image/upload/v1678700721/No-Photo_ryvjpx.jpg'
           }
           alt={
             page?.data.description! || 'image description'

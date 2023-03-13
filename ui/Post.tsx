@@ -1,8 +1,5 @@
 'use client'
 import { Article } from "@/src/interfaces/article";
-import { getPortfolioArticleBySlug } from "@/lib/articles/read";
-import { useQuery } from "@tanstack/react-query";
-import { useRouter } from "next/router";
 import { MarkdownPreview } from "./MarkdownPreview";
 import { useGetArticleBySlug } from "@/src/hooks/useArticles1";
 
@@ -47,7 +44,7 @@ export default function Post(props: Props) {
       <div className="pt-12 border-t dark:border-gray-700">
         <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
           <img
-            src="https://source.unsplash.com/75x75/?portrait"
+            src="https://res.cloudinary.com/dcpr6059h/image/upload/v1678700721/No-Photo_ryvjpx.jpg"
             alt=""
             className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700"
           />
