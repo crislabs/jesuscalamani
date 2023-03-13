@@ -125,6 +125,14 @@ export const getPortfolioCategory0BySlug = async (slug: string, siteId: string) 
             }
             thumbnailUrl
           }
+          categories{
+            _id
+            slug
+            data{
+              name
+              thumbnailUrl
+            }
+          }
           articles{
             _id
             slug
@@ -133,6 +141,7 @@ export const getPortfolioCategory0BySlug = async (slug: string, siteId: string) 
               thumbnailUrl
             }
           }
+          
         }
       }
         `,

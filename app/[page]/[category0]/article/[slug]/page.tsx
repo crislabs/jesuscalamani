@@ -27,6 +27,7 @@ export default function Page(props: Props) {
       process.env.NEXT_PUBLIC_SITE_URL as string,
     ),
   );
+  
   return <Post post={post} />;
 }
 

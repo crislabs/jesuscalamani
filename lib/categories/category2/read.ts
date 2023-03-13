@@ -1,15 +1,15 @@
 import { Category } from "@/src/interfaces/category";
 import { ConnectionArgs } from "@/src/interfaces/site";
 
-export const getPortfolioCategories1ByParentId = async ( parentId: string) => {
+export const getPortfolioCategories2ByParentId = async ( parentId: string) => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_BACKEND_URL}/graphql`,
   {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify({
       query: `
-      query PortfolioGetCategories1ByParentId( $parentId: String!){
-        portfolioGetCategories1ByParentId( parentId: $parentId){
+      query PortfolioGetCategories2ByParentId( $parentId: String!){
+        portfolioGetCategories2ByParentId( parentId: $parentId){
           _id
           slug
           parentId
@@ -26,18 +26,18 @@ export const getPortfolioCategories1ByParentId = async ( parentId: string) => {
       },
     }),
   });
-  const { data: {portfolioGetCategories1ByParentId} } = await response.json();
-  return  portfolioGetCategories1ByParentId
+  const { data: {portfolioGetCategories2ByParentId} } = await response.json();
+  return  portfolioGetCategories2ByParentId
 }
-export const getPortfolioCategory1ById = async ( id: string):Promise<Category> => {
+export const getPortfolioCategory2ById = async ( id: string):Promise<Category> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_BACKEND_URL}/graphql`,
   {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify({
       query: `
-      query PortfolioGetCategory1ById( $id: String!){
-        portfolioGetCategory1ById( id: $id){
+      query PortfolioGetCategory2ById( $id: String!){
+        portfolioGetCategory2ById( id: $id){
           _id
           slug
           parentId
@@ -57,19 +57,19 @@ export const getPortfolioCategory1ById = async ( id: string):Promise<Category> =
       },
     }),
   });
-  const { data: {portfolioGetCategory1ById} } = await response.json();
-  return  portfolioGetCategory1ById
+  const { data: {portfolioGetCategory2ById} } = await response.json();
+  return  portfolioGetCategory2ById
 }
 
-export const getPortfolioCategory1BySlug = async (slug: string, siteId: string) => {
+export const getPortfolioCategory0BySlug = async (slug: string, siteId: string) => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_BACKEND_URL}/graphql`,
   {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify({
       query: `
-      query PortfolioGetCategory1BySlug($slug:String!, $siteId: String!){
-        portfolioGetCategory1BySlug(slug: $slug, siteId: $siteId){
+      query PortfolioGetCategory0BySlug($slug:String!, $siteId: String!){
+        portfolioGetCategory0BySlug(slug: $slug, siteId: $siteId){
           _id
           slug
           data{
@@ -97,8 +97,8 @@ export const getPortfolioCategory1BySlug = async (slug: string, siteId: string) 
     }),
 
   });
-  const { data: {portfolioGetCategory1BySlug} } = await response.json();
-  return  portfolioGetCategory1BySlug
+  const { data: {portfolioGetCategory0BySlug} } = await response.json();
+  return  portfolioGetCategory0BySlug
 }
 
 export const getPortfolioCategories1BySiteId = async (siteId: string):Promise<Category[]> => {

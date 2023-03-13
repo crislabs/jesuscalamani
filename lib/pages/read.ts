@@ -137,6 +137,12 @@ export const getPortfolioPagesBySiteId = async (siteId: string):Promise<Page[]> 
             articles{
               slug
             }
+            categories{
+              slug
+              articles{
+                slug
+              }
+            }
           }
         }
       }

@@ -23,8 +23,6 @@ export default function Page(props: Props) {
   if (category.data.type.slug === 'blog') {
     articles = use(getPortfolioArticlesByParentId(props.params.id))
   }
-  // const categories2 = use(getPortfolioCategories0BySiteId(process.env.NEXT_PUBLIC_SITE_URL as string))
-  // console.log('categories2', categories2)
   return (
     <PaginationProvider>
       {

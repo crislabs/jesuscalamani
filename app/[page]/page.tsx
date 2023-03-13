@@ -2,6 +2,7 @@ import React, { use } from 'react'
 import { getPortfolioPageBySlug, getPortfolioPagesBySiteId } from '@/lib/pages/read'
 import type { Metadata } from 'next'
 import GridCategory from '@/ui/grid/GridCategory'
+import GridPage from '@/ui/grid/GridPage'
 
 interface Props {
   params: {
@@ -19,9 +20,10 @@ export default function Page(props: Props) {
   // console.log('page', page)
   return (
     <React.Fragment>
+      
       {
         page?.data.type.slug === 'category' && 
-        <GridCategory page={page}/>
+        <GridPage page={page}/>
       }
       {
         page?.data.type.slug === 'about' && 

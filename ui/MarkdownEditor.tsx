@@ -25,7 +25,7 @@ export default function MarkdownEditor(props: Props) {
   );
   // Editor.use(PublishButton, {id: props.id, content: message , uid: '123456789'});
   const handleEditorChange = ({ html, text }: {html: string, text: string}) => {
-    console.log('handleEditorChange', { html, text })
+    // console.log('handleEditorChange', { html, text })
     // const newValue = text.replace(/\d/g, '');
     setMessage(text);
   };

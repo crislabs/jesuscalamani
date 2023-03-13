@@ -1,27 +1,24 @@
 'use client'
-import { useGetCategory0BySlug } from "@/src/hooks/useCategory0"
 import { useGetPageBySlug } from "@/src/hooks/usePages"
-import { Category } from "@/src/interfaces/category"
 import { Page } from "@/src/interfaces/page"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 
 interface Props{
-  category?: Category
+  page?: Page
 }
 
-export default function GridCategory(props: Props) {
+export default function GridPage(props: Props) {
   const pathname = usePathname()
-  const { data: category } = useGetCategory0BySlug(props.category as Category)
-  console.log('category', category)
+  const { data: page } = useGetPageBySlug(props.page as Page)
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">{category?.data.name}</h2>
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900">{page?.data.name}</h2>
 
         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {category?.categories?.map((data, i) => (
+          {page?.categories?.map((data, i) => (
             <div key={i} className="group relative">
               <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                 <img
