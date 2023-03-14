@@ -15,7 +15,7 @@ August (**_óoguestá_**) ............ Agosto \
 September (**_septémbeR_**) ....... Septiembre \
 October (**_octóUbeR_**) .......... Octubre \
 November (**_novémbeR_**) ......... Noviembre \
-December (**_disémbeR_**) ......... Diciembre \
+December (**_disémbeR_**) ......... Diciembre
 
 ## Dias de la semana
 
@@ -26,7 +26,7 @@ Wednesday (**_uuénsdEi_**) ..... Miércoles \
 Thursday (**_zérsdEi_**) ....... Jueves \
 Friday (**_fráidEi_**) ......... Viernes \
 Saturday (**_sáterdEi_**) ...... Sábado \
-Sunday (**_sándEi_**) .......... Domingo \
+Sunday (**_sándEi_**) .......... Domingo
 
 ### Ejercicios
 
