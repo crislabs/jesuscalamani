@@ -4,29 +4,29 @@
 
 Si se observa que los nombres de los meses del año, en inglés, son muy parecidos a los del castellano, y los estudia observando la analogía que tienen entre ellos, le será fácil aprenderlos de memoria.
 
-  January (**_yanuari_**) ........... Enero
-  February (**_fébruari_**) ......... Febrero
-- March (**_máaRch_**) .............. Marzo
-- April (**_éipril_**) .............. Abril
-- May (**_méi_**) ................... Mayo
-- June (**_yúun_**) ................. Junio
-- July (**_yuulai_**) ............... Julio
-- August (**_óoguestá_**) ............ Agosto
-- September (**_septémbeR_**) ....... Septiembre
-- October (**_octóUbeR_**) .......... Octubre
-- November (**_novémbeR_**) ......... Noviembre
-- December (**_disémbeR_**) ......... Diciembre
+January (**_yanuari_**) ........... Enero \
+February (**_fébruari_**) ......... Febrero \
+March (**_máaRch_**) .............. Marzo \
+April (**_éipril_**) .............. Abril \
+May (**_méi_**) ................... Mayo \
+June (**_yúun_**) ................. Junio \
+July (**_yuulai_**) ............... Julio \
+August (**_óoguestá_**) ............ Agosto \
+September (**_septémbeR_**) ....... Septiembre \
+October (**_octóUbeR_**) .......... Octubre \
+November (**_novémbeR_**) ......... Noviembre \
+December (**_disémbeR_**) ......... Diciembre \
 
 ## Dias de la semana
 
 Aprenda de memoria los días de la semana.
-- Monday (**_mandEi_**) .......... Lunes
-- Tuesday (**_tiúsdEi_**) ........ Martes
-- Wednesday (**_uuénsdEi_**) ..... Miércoles
-- Thursday (**_zérsdEi_**) ....... Jueves
-- Friday (**_fráidEi_**) ......... Viernes
-- Saturday (**_sáterdEi_**) ...... Sábado
-- Sunday (**_sándEi_**) .......... Domingo
+Monday (**_mandEi_**) .......... Lunes \
+Tuesday (**_tiúsdEi_**) ........ Martes \
+Wednesday (**_uuénsdEi_**) ..... Miércoles \
+Thursday (**_zérsdEi_**) ....... Jueves \
+Friday (**_fráidEi_**) ......... Viernes \
+Saturday (**_sáterdEi_**) ...... Sábado \
+Sunday (**_sándEi_**) .......... Domingo \
 
 ### Ejercicios
 
@@ -37,13 +37,13 @@ Repita éste ejercicio hasta ejecutarlo sin errores.
 
 Estudiaremos ahora los pronombres personales ingleses, la mayor parte de los cuales ya conoce el lector.
 
-- I (**_ai_**) ................ Yo
-- You (**_yúu_**) ............. Usted, ustedes
-- He (**_jíi_**) .............. El
-- She (**_SHíi_**) (1) ........ Ella
-- It (**_it_**) ............... El o ella
-- We (**_uí_**) ............... Nosotros, nosotras
-- They (**_déi_**) ............ Ellos, ellas
+I (**_ai_**) ................ Yo \
+You (**_yúu_**) ............. Usted, ustedes \
+He (**_jíi_**) .............. El \
+She (**_SHíi_**) (1) ........ Ella \
+It (**_it_**) ............... El o ella \
+We (**_uí_**) ............... Nosotros, nosotras \
+They (**_déi_**) ............ Ellos, ellas
 
 > (1) Si le es posible, pida a alguien que hable inglés que le indique la pronunciación de esta palabra.
 
@@ -96,16 +96,11 @@ Por muy fácil que sea el sistema Básico, usted no podrá aprenderlo si no estu
 
 Para formar el presente de los verbos ingleses basta sustituir la palabra to por los pronombres personales yo, usted, él, ella, nosotros o ellos, y en esa sencilla forma tenemos automáticamente formado el presente de los verbos ingleses.
 
-To send (**_tu send_**) .... Enviar
-
-I send (**_ai send_**) .... Yo envío
-
-You send (**_yúu send_**) .. Usted envía
-
-To go (**_tu góU_**) ....... Ir
-
-We go (**_uí góU_**) ....... Nosotros vamos
-
+To send (**_tu send_**) .... Enviar \
+I send (**_ai send_**) .... Yo envío \
+You send (**_yúu send_**) .. Usted envía \
+To go (**_tu góU_**) ....... Ir \
+We go (**_uí góU_**) ....... Nosotros vamos \
 They go (**_déi góU_**) .... Ellos van
 
 
@@ -117,58 +112,35 @@ Damos a continuación el tiempo presente completo de los 16 verbos Básicos. Es 
 
 `**TO PUT** = PONER`  
 
-I put (**_pút_**) ..... Yo pongo  
-
-You put ......... Ud. pone
-
-He puts (**_puts_**) .. El pone
-
-She puts (1) .... Ella pone
-
-It puts (2) ..... pone
-
-We put .......... Nos. ponemos
-
-You put ......... Uds. ponen
-
-They put ........ Ellos ponen
+I put (**_pút_**) ..... Yo pongo \
+You put ......... Ud. pone \
+He puts (**_puts_**) .. El pone \
+She puts (1) .... Ella pone \
+It puts (2) ..... pone \
+We put .......... Nos. ponemos \
+You put ......... Uds. ponen \
+They put ........ Ellos ponen 
 
 `**TO BE** = ESTAR`  
-  
 
-I have (**_jav_**) ..... Yo tengo  
-
-You have ......... Ud. tiene
-
-He has (**_jas_**) .. El tiene
-
-She has (1) .... Ella tiene
-
-It has (2) ..... tiene
-
-We have .......... Nos. tenemos
-
-You have ......... Uds. tienen
-
+I have (**_jav_**) ..... Yo tengo \
+You have ......... Ud. tiene \
+He has (**_jas_**) .. El tiene \
+She has (1) .... Ella tiene \
+It has (2) ..... tiene \
+We have .......... Nos. tenemos \
+You have ......... Uds. tienen \
 They have ........ Ellos tienen
 
 `**TO HAVE** = TENER`  
   
-
-I have (**_jav_**) ..... Yo tengo  
-
-You have ......... Ud. tiene
-
-He has (**_jas_**) .. El tiene
-
-She has (1) .... Ella tiene
-
-It has (2) ..... tiene
-
-We have .......... Nos. tenemos
-
-You have ......... Uds. tienen
-
+I have (**_jav_**) ..... Yo tengo \
+You have ......... Ud. tiene \
+He has (**_jas_**) .. El tiene \
+She has (1) .... Ella tiene \
+It has (2) ..... tiene \
+We have .......... Nos. tenemos \
+You have ......... Uds. tienen \
 They have ........ Ellos tienen
 
 ### Ejercicios con tiempo presente
